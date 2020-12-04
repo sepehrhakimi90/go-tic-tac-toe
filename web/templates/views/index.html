@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/myStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="jumbotron d-flex justify-content-center">
+                <h1>Welcome to Tic Tac Toe!</h1>
+
+                <form id="gameForm">
+                    <div class="form-row align-items-center">
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="firstPlayerName">1st Player name</label>
+                            <input type="text" class="form-control" id="firstPlayerName" placeholder="player-1">
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="secondPlayerName">2st Player name</label>
+                            <input type="text" class="form-control" id="secondPlayerName" placeholder="player-2">
+                        </div>
+                    </div>
+                    <div class="col-auto my-1">
+                        <button id="startButton" type="submit" class="btn btn-primary">Start</button>
+                    </div>
+                </form>
+
+                <p><a id='restartButton' class="btn btn-primary btn-lg invisible" href="#" role="button">Restart!</a>
+                </p>
+            </div>
+        </div>
+        <div id="gameArea" class="row">
+            <table align='center' id="gameBoard" class="invisible col-lg-6">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+
+            </table>
+        </div>
+
+    </div>
+    <script src="public/js/myscript.js"></script>
+</body>
+
+</html>
