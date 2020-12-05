@@ -14,7 +14,7 @@ type Game struct {
 	Winner         int              `json:"winner"`
 	CurrentPlayer  int              `json:"current_player"`
 	CurrentMove    int              `json:"-"`
-	AvailableMoves int              `json:"-"`
+	AvailableMoves int              `json:"available_moves"`
 }
 
 func (g *Game) checkWinner() {

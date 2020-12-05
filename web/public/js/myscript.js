@@ -8,6 +8,7 @@ function clearBoard() {
     for (var i = 0; i < cells.length; i++) {
         cells[i].textContent = '';
     }
+
 }
 
 $("#startButton").click(function (event) {
@@ -31,6 +32,7 @@ $("#startButton").click(function (event) {
         }).done(function (data) {
             if($("#startButton").text()==="Restart") {
                 clearBoard()
+                deactivateBoard()
             }
             if($(".card").length) {
                 $(".card").remove()
@@ -104,6 +106,7 @@ function cellClick(event) {
         data: {"selectedCell":idx}
     }).done(function (data) {
         var winner = data["data"]["winner"]
+        var availableMoves = data["data"]["available_moves"]
         var current_player = data["data"]["current_player"]
         var prev_player = (current_player + 1) % 2
 
@@ -112,12 +115,28 @@ function cellClick(event) {
             event.target.textContent =  data["data"]["Players"][prev_player]["sign"]
             deactivateBoard()
             drawWinner(data["data"]["Players"][winner])
+        } else if (availableMoves <= 0){
+            deactivateBoard()
+            drawDraw()
         }
         var lis = $("#board li")
         $("#board li.active").removeClass("active")
         $(lis[current_player]).addClass("active")
         event.target.textContent =  data["data"]["Players"][prev_player]["sign"]
     })
+}
+
+function drawDraw() {
+    var area = $("div#gameArea");
+
+    var element = `
+        <div class="card col-lg-3">
+            <div class="card-body">
+                <button type="button" class="btn btn-success">!!!DRAW!!!</button>
+            </div>
+        </div>
+    `
+    area.append(element)
 }
 
 
